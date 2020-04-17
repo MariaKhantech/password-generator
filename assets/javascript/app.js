@@ -20,9 +20,10 @@
 // var wantLowercase = confirm("Click OK to confirm to include lowercase characters?")
 
 var validResponse = false;
-
-// var uppercaseAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
+//Arrays//
+var uppercaseAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var specialCharArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "="];
 
 //generates password when the button is clicked//
 function generateRandoPassword() {
@@ -44,6 +45,11 @@ function generateRandoPassword() {
         var wantUppercase = confirm("Click OK to confirm to include uppercase characters?");
         var wantLowercase = confirm("Click OK to confirm to include lowercase characters?");
 
+        for (var i = 0; i < numberOfCharacters; i++) {
+
+
+        }
+
     } //checks to see if input is valid choice and exits if canceled//
     else if (returnValue === false && numberOfCharacters === null) {
         alert("No password was generated.");
@@ -52,7 +58,7 @@ function generateRandoPassword() {
         alert("Invalid number of characters");
     }
 }
-
+// checks to see if number is between 8-128 //
 function isValidNumberOfChar(numberOfCharacters) {
     console.log(numberOfCharacters)
     if (numberOfCharacters >= 8 && numberOfCharacters <= 128) {
@@ -63,10 +69,15 @@ function isValidNumberOfChar(numberOfCharacters) {
 
 }
 
-
-
-
+// trying to create random upper char//
 function createRandoUpper() {
+    if (wantUppercase === true && i === 0) {
+        var randomUpper = Math.floor(Math.random() * uppercaseAlpha.length);
+
+        var randomUpperChar = uppercaseAlpha[randomUpper]
+        password = password + randomUpperChar
+
+    }
 
 }
 
