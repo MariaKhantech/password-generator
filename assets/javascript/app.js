@@ -63,32 +63,24 @@ function isValidNumberOfChar(numberOfCharacters) {
 }
 // trying to create random upper char//
 function createRandoSpecial(array) {
-    var password = "";
     var specialArrayPosition = Math.floor(Math.random() * array.length);
     var randomSpecialChar = array[specialArrayPosition];
-    password = password + randomSpecialChar;
-    return password;
+    return randomSpecialChar;
 }
 //creates random upper case//
 function createRandoUpper(array) {
-    var password = "";
     var uppercaseArrayPosition = Math.floor(Math.random() * array.length);
     var randomUpperChar = array[uppercaseArrayPosition];
-    password = password + randomUpperChar;
-    return password;
+    return randomUpperChar;
 }
 //chooses a random upper case and changes to lower case//
 function createRandoLower(array) {
-    var password = "";
     var uppercaseArrayPosition = Math.floor(Math.random() * array.length);
     var randomUpperChar = array[uppercaseArrayPosition];
-    password = password + randomUpperChar.toLowerCase();
-    return password;
+    return randomUpperChar.toLowerCase();
 }
 // creates random number//
 function createRandoNumber() {
-    var password = "";
     var randomNumber = Math.floor(Math.random() * 10);
-    password = password + randomNumber;
-    return password;
+    return randomNumber;
 }
