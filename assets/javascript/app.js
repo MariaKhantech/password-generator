@@ -28,10 +28,22 @@ function generateRandoPassword() {
 
 
         for (var i = 0; i < numberOfCharacters; i++) {
-            createRandoSpecial(specialCharArray, wantSpecialChar);
-            createRando(thisNiumbers, wantNumbers);
-            createRando(uppercaseArray, wantUppercase);
-            createRando("lowerCase", wantLowercase);
+            //create random special character//
+            if (wantSpecialChar) {
+                createRandoSpecial(specialCharArray);
+            }
+            //create random number//
+            if (wantNumbers) {
+                createRandoNumber();
+            }
+            //create random uppercase letters//
+            if (wantUppercase) {
+                createRandoUpper(uppercaseArray);
+            }
+            // create random lowercase letters//
+            if (wantLowercase) {
+                createRandoLower(uppercaseArray);
+            }
         }
 
     } //checks to see if input is valid choice and exits if canceled//
@@ -57,59 +69,25 @@ function isValidNumberOfChar(numberOfCharacters) {
 
 // trying to create random upper char//
 function createRandoSpecial(array) {
-
     var password = "";
     var specialArrayPosition = Math.floor(Math.random() * array.length);
-    var randomSpecialChar = array[specialArrayIndexPosition];
+    var randomSpecialChar = array[specialArrayPosition];
     password = password + randomSpecialChar;
     return password;
 }
 
-
-
-
-
-// trying to create random upper char//
-function createRandoNumber(array, trueOrFalse) {
+function createRandoUpper(array) {
     var password = "";
-
-    if (trueOrFalse === true) {
-        var randomUpper = Math.floor(Math.random() * array.length);
-
-        var randomUpperChar = array[randomUpper]
-        password = password + randomUpperChar;
-
-    }
+    var uppercaseArrayPosition = Math.floor(Math.random() * array.length);
+    var randomUpperChar = array[uppercaseArrayPosition];
+    password = password + randomUpperChar;
     return password;
 }
 
-// trying to create random upper char//
-function createRandoLower(array, trueOrFalse) {
-    var password = "";
 
-    if (trueOrFalse === true) {
-        var randomUpper = Math.floor(Math.random() * array.length);
 
-        var randomUpperChar = array[randomUpper]
-        password = password + randomUpperChar;
 
-    }
-    return password;
-}
 
-// trying to create random upper char//
-function createRandoUpper(array, trueOrFalse) {
-    var password = "";
-
-    if (trueOrFalse === true) {
-        var randomUpper = Math.floor(Math.random() * array.length);
-
-        var randomUpperChar = array[randomUpper]
-        password = password + randomUpperChar;
-
-    }
-    return password;
-}
 
 
 
