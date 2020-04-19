@@ -1,29 +1,10 @@
 
-
-
-// // // Prompts questions to generate password//
-// var wantPassword = confirm("Click OK if you want to generate a password?");
-
-// if (wantPassword === true) { }
-
-// var numberOfCharacters = prompt("How many characters[between 8 and 128]?");
-// console.log(numberOfCharacters);
-
-
-
-// var wantNumbers = confirm("Click OK to confirm to inlude numeric characters?");
-// console.log(wantNumbers);
-
-// var wantUppercase = confirm("Click OK to confirm to include uppercase characters?");
-// console.log(wantUppercase);
-
-// var wantLowercase = confirm("Click OK to confirm to include lowercase characters?")
-
 var validResponse = false;
 //Arrays//
-var uppercaseAlpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialCharArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "="];
+
 
 //generates password when the button is clicked//
 function generateRandoPassword() {
@@ -45,9 +26,12 @@ function generateRandoPassword() {
         var wantUppercase = confirm("Click OK to confirm to include uppercase characters?");
         var wantLowercase = confirm("Click OK to confirm to include lowercase characters?");
 
+
         for (var i = 0; i < numberOfCharacters; i++) {
-
-
+            createRandoSpecial(specialCharArray, wantSpecialChar);
+            createRando(thisNiumbers, wantNumbers);
+            createRando(uppercaseArray, wantUppercase);
+            createRando("lowerCase", wantLowercase);
         }
 
     } //checks to see if input is valid choice and exits if canceled//
@@ -69,29 +53,64 @@ function isValidNumberOfChar(numberOfCharacters) {
 
 }
 
-// trying to create random upper char//
-function createRandoUpper() {
-    if (wantUppercase === true && i === 0) {
-        var randomUpper = Math.floor(Math.random() * uppercaseAlpha.length);
 
-        var randomUpperChar = uppercaseAlpha[randomUpper]
-        password = password + randomUpperChar
+
+// trying to create random upper char//
+function createRandoSpecial(array) {
+
+    var password = "";
+    var specialArrayPosition = Math.floor(Math.random() * array.length);
+    var randomSpecialChar = array[specialArrayIndexPosition];
+    password = password + randomSpecialChar;
+    return password;
+}
+
+
+
+
+
+// trying to create random upper char//
+function createRandoNumber(array, trueOrFalse) {
+    var password = "";
+
+    if (trueOrFalse === true) {
+        var randomUpper = Math.floor(Math.random() * array.length);
+
+        var randomUpperChar = array[randomUpper]
+        password = password + randomUpperChar;
 
     }
-
+    return password;
 }
 
-function createRandoLower() {
+// trying to create random upper char//
+function createRandoLower(array, trueOrFalse) {
+    var password = "";
 
+    if (trueOrFalse === true) {
+        var randomUpper = Math.floor(Math.random() * array.length);
+
+        var randomUpperChar = array[randomUpper]
+        password = password + randomUpperChar;
+
+    }
+    return password;
 }
 
-function createRandoNumb() {
+// trying to create random upper char//
+function createRandoUpper(array, trueOrFalse) {
+    var password = "";
 
+    if (trueOrFalse === true) {
+        var randomUpper = Math.floor(Math.random() * array.length);
+
+        var randomUpperChar = array[randomUpper]
+        password = password + randomUpperChar;
+
+    }
+    return password;
 }
 
-function createRandoSpecialChar() {
-
-}
 
 
 
@@ -137,3 +156,10 @@ function createRandoSpecialChar() {
 // }
 
 
+// if (wantUppercase === true && i === 0) {
+//     var randomUpper = Math.floor(Math.random() * uppercaseAlpha.length);
+
+//     var randomUpperChar = uppercaseAlpha[randomUpper]
+//     password = password + randomUpperChar
+
+// }
