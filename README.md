@@ -4,3 +4,5 @@ An example of how the password generator works when prompted for a password:
 ![password-generator](https://user-images.githubusercontent.com/61640527/79699888-42f44f00-8260-11ea-87ff-5c35fc5df55f.gif)
 
 An example on how the password generator works if all characters are declined:
+![password-generator2](https://user-images.githubusercontent.com/61640527/79699962-a41c2280-8260-11ea-9e4a-a8627a84d2ba.gif)
+
