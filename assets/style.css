@@ -15,26 +15,29 @@
 
 }
 .modal-header {
-background-color: lightgrey;
+background-color: sandybrown;
 padding-bottom: 0px;
 }
 
 .modal-title {
-    background-color: lightgrey;
+    background-color: sandybrown;
+    color: white;
 }
 
 #button {
- background-color: lightgrey;
- color: black;
+ background-color: sandybrown;
+ color: white;
 
  ;
 }
 
 p {
+    color: black;
     text-align: center;
 }
 
 #color {
     background-color: #00BFFF;
-    padding: 20px;
+    padding: 80px;
+   
 }
