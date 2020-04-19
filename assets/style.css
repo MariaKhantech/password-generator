@@ -14,7 +14,27 @@
     background-size: cover;
 
 }
+.modal-header {
+background-color: lightgrey;
+padding-bottom: 0px;
+}
 
-#   button {
-    background-color: #f3f3a0;
+.modal-title {
+    background-color: lightgrey;
+}
+
+#button {
+ background-color: lightgrey;
+ color: black;
+
+ ;
+}
+
+p {
+    text-align: center;
+}
+
+#color {
+    background-color: #00BFFF;
+    padding: 20px;
 }

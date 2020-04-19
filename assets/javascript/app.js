@@ -1,10 +1,10 @@
 
-var validResponse = false;
+
+
 //Arrays//
 var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialCharArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "="];
-
 
 //generates password when the button is clicked//
 function generateRandoPassword() {
@@ -26,27 +26,17 @@ function generateRandoPassword() {
         var wantUppercase = confirm("Click OK to confirm to include uppercase characters?");
         var wantLowercase = confirm("Click OK to confirm to include lowercase characters?");
 
-
+        var password = "";
         for (var i = 0; i < numberOfCharacters; i++) {
-            //create random special character//
-            if (wantSpecialChar) {
-                createRandoSpecial(specialCharArray);
-            }
-            //create random number//
-            if (wantNumbers) {
-                createRandoNumber();
-            }
-            //create random uppercase letters//
-            if (wantUppercase) {
-                createRandoUpper(uppercaseArray);
-            }
-            // create random lowercase letters//
-            if (wantLowercase) {
-                createRandoLower(uppercaseArray);
-            }
+            password = password + createRando(uppercaseArray, wantUppercase);
+            password = password + createRando(numberArray, wantNumbers);
+            password = password + createRando(specialCharArray, wantSpecialChar);
+            password = password + createRando(uppercaseArray, wantLowercase);
         }
-
-    } //checks to see if input is valid choice and exits if canceled//
+        //populates the password//
+        document.querySelector("#password-generator").innerHTML = password;
+    }
+    //checks to see if input is valid choice and exits if canceled//
     else if (returnValue === false && numberOfCharacters === null) {
         alert("No password was generated.");
     }
@@ -65,29 +55,22 @@ function isValidNumberOfChar(numberOfCharacters) {
 
 }
 
-
-
 // trying to create random upper char//
-function createRandoSpecial(array) {
+function createRando(char, trueOrFalse) {
     var password = "";
-    var specialArrayPosition = Math.floor(Math.random() * array.length);
-    var randomSpecialChar = array[specialArrayPosition];
-    password = password + randomSpecialChar;
+
+    if (trueOrFalse === true) {
+        var randomUpper = Math.floor(Math.random() * char.length);
+
+        var randomUpperChar = char[randomUpper]
+        password = password + randomUpperChar;
+
+        var randomUpperChar = char[randomUpper]
+        password = password + randomUpperChar.toLowerCase();
+
+    }
     return password;
 }
-
-function createRandoUpper(array) {
-    var password = "";
-    var uppercaseArrayPosition = Math.floor(Math.random() * array.length);
-    var randomUpperChar = array[uppercaseArrayPosition];
-    password = password + randomUpperChar;
-    return password;
-}
-
-
-
-
-
 
 
 
