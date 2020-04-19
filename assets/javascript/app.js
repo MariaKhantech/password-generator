@@ -1,6 +1,5 @@
 //Arrays//
 var uppercaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var numberArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialCharArray = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "="];
 
 //generates password when the button is clicked//
@@ -9,11 +8,9 @@ function generateRandoPassword() {
     // Code gets numberOfCharacters and converts string to a number//
     var numberOfCharacters = prompt("How many characters do you want between 8 and 128?");
     var changeToNumber = parseInt(numberOfCharacters);
-    console.log(numberOfCharacters);
 
     // Calls the function isValidNumberOfChar to determine if the number is between 8-128//
     var returnValue = isValidNumberOfChar(changeToNumber);
-    console.log(returnValue);
 
     //Check to see if return value is true or false//
     if (returnValue === true) {
@@ -23,24 +20,29 @@ function generateRandoPassword() {
         var wantUppercase = confirm("Click OK to confirm to include uppercase characters?");
         var wantLowercase = confirm("Click OK to confirm to include lowercase characters?");
 
-        var password = "";
-        while (password.length < changeToNumber) {
-            if (wantSpecialChar && password.length < changeToNumber) {
-                password = password + createRandoSpecial(specialCharArray);
+        //Checks if all confirms were false and prompts needs valid input//
+        if (!wantSpecialChar && !wantNumbers && !wantUppercase && !wantLowercase) {
+            alert("A character type needs to be selected.");
+        } else {
+            //Building the random password//
+            var password = "";
+            while (password.length < changeToNumber) {
+                if (wantSpecialChar && password.length < changeToNumber) {
+                    password = password + createRandoSpecial(specialCharArray);
+                }
+                if (wantNumbers && password.length < changeToNumber) {
+                    password = password + createRandoNumber();
+                }
+                if (wantUppercase && password.length < changeToNumber) {
+                    password = password + createRandoUpper(uppercaseArray);
+                }
+                if (wantLowercase && password.length < changeToNumber) {
+                    password = password + createRandoLower(uppercaseArray);
+                }
             }
-            if (wantNumbers && password.length < changeToNumber) {
-                password = password + createRandoNumber();
-            }
-            if (wantUppercase && password.length < changeToNumber) {
-                password = password + createRandoUpper(uppercaseArray);
-            }
-            if (wantLowercase && password.length < changeToNumber) {
-                password = password + createRandoLower(uppercaseArray);
-            }
-
+            //populates the password//
+            document.querySelector("#password-generator").innerHTML = password;
         }
-        //populates the password//
-        document.querySelector("#password-generator").innerHTML = password;
     }
     //checks to see if input is valid choice and exits if canceled//
     else if (returnValue === false && numberOfCharacters === null) {
@@ -58,9 +60,7 @@ function isValidNumberOfChar(numberOfCharacters) {
     } else {
         return false;
     }
-
 }
-
 // trying to create random upper char//
 function createRandoSpecial(array) {
     var password = "";
