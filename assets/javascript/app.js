@@ -54,7 +54,6 @@ function generateRandoPassword() {
 }
 // checks to see if number is between 8-128 //
 function isValidNumberOfChar(numberOfCharacters) {
-    console.log(numberOfCharacters)
     if (numberOfCharacters >= 8 && numberOfCharacters <= 128) {
         return true;
     } else {
